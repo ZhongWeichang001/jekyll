@@ -1,0 +1,87 @@
+---
+layout: article
+sidebar:
+ nav: dic
+---
+## 什么是Fluid
+
+Fluid是一个开源的Kubernetes原生的分布式数据集编排和加速引擎，主要服务于云原生场景下的数据密集型应用，例如大数据应用、AI应用等。通过定义数据集资源的抽象，实现如下功能：
+
+<div align="center">
+  <img src="http://kubeflow.oss-cn-beijing.aliyuncs.com/Static/architecture.png" title="architecture" width="60%" height="60%" alt="">
+</div>
+
+## 核心功能
+
+- __数据集抽象原生支持__
+
+  将数据密集型应用所需基础支撑能力功能化，实现数据高效访问并降低多维管理成本
+
+- __云上数据预热与加速__
+
+	Fluid通过使用分布式缓存引擎（Alluxio inside）为云上应用提供数据预热与加速，同时可以保障缓存数据的可观测性，可迁移性和自动化的水平扩展
+
+- __数据应用协同编排__
+
+  在云上调度应用和数据时候，同时考虑两者特性与位置，实现协同编排，提升性能
+
+- __多命名空间管理支持__
+
+	用户可以创建和管理不同namespace的数据集
+
+- __异构数据源管理__
+
+	一次性统一访问不同来源的底层数据（对象存储，HDFS和Ceph等存储)，适用于混合云场景
+
+## 重要概念
+
+**Dataset**: 数据集是逻辑上相关的一组数据的集合，会被运算引擎使用，比如大数据的Spark，AI场景的TensorFlow。而这些数据智能的应用会创造工业界的核心价值。Dataset的管理实际上也有多个维度，比如安全性，版本管理和数据加速。我们希望从数据加速出发，对于数据集的管理提供支持。
+
+**Runtime**: 实现数据集安全性，版本管理和数据加速等能力的执行引擎，定义了一系列生命周期的接口。可以通过实现这些接口，支持数据集的管理和加速。
+
+**AlluxioRuntime**: 来源于[Alluixo](https://www.alluxio.org/)社区，是支撑Dataset数据管理和缓存的执行引擎实现。Fluid通过管理和调度Alluxio Runtime实现数据集的可见性，弹性伸缩， 数据迁移。
+
+## 先决条件
+
+- Kubernetes version > 1.14, 支持CSI
+- Golang 1.12+
+- Helm 3
+
+## 快速开始
+
+你可以通过 [快速开始](/fluid/get_started.html) 在Kubernetes集群中测试Fluid.
+
+## 演示
+我们提供了视频的Demo，为您展示如何通过Fluid提升数据访问速度。
+
+### 演示 1: 加速文件访问
+
+[![](http://kubeflow.oss-cn-beijing.aliyuncs.com/Static/remote_file_accessing.png)](http://cloud.video.taobao.com/play/u/2987821887/p/1/e/6/t/1/277753111709.mp4)
+
+
+### 演示 2: 加速机器学习
+
+[![](http://kubeflow.oss-cn-beijing.aliyuncs.com/Static/machine_learning.png)](http://cloud.video.taobao.com/play/u/2987821887/p/1/e/6/t/1/277528130570.mp4)
+
+## 快速体验Fluid
+Fluid需要运行在 Kubernetes v1.14 及以上版本，并且需要支持CSI存储。Fluid Operator的部署和管理是通过 Kubernetes 平台上的包管理工具 Helm v3实现的。运行 Fluid前请确保 Helm 已经正确安装在 Kubernetes 集群里。
+
+## 如何贡献
+
+欢迎您的贡献，如何贡献请参考[CONTRIBUTING.md](https://github.com/fluid-cloudnative/fluid/blob/master/CONTRIBUTING.md).
+
+## 欢迎加入与反馈
+
+Fluid让Kubernetes真正具有分布式数据缓存的基础能力，开源只是一个起点，需要大家的共同参与。大家在使用过程发现Bug或需要的Feature，都可以直接在 [GitHub](https://github.com/fluid-cloudnative/fluid)上面提 issue 或 PR，一起参与讨论。另外我们有一个钉钉群，欢迎您的参与和讨论。
+
+钉钉讨论群
+<div>
+  <img src="http://kubeflow.oss-cn-beijing.aliyuncs.com/Static/dingtalk.png" width="280" title="dingtalk">
+</div>
+
+## 开源协议
+
+Fluid采用Apache 2.0 license开源协议，详情参见[LICENSE](https://github.com/fluid-cloudnative/fluid/blob/master/LICENSE)文件。
+
+## 最新文档
+项目更多最新详情，请参见[Github项目主页](https://github.com/fluid-cloudnative/fluid)。
