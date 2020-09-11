@@ -13,6 +13,6 @@ pack:modify-HTML
 	tar cf fluid.tar _site/fluid/
 
 preview:modify-MD
-	bundle exec jekyll serve -H 0.0.0.0 -t & ;
+	bundle exec jekyll serve -H 0.0.0.0 -t & 
 	sleep 3;
 	python3 vendor/modify.py
