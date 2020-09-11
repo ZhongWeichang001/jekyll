@@ -1,50 +1,37 @@
 header:
-  - titles:
-      # @start locale config
-      en      : &EN       Archive
-      en-GB   : *EN
-      en-US   : *EN
-      en-CA   : *EN
-      en-AU   : *EN
-      zh-Hans : &ZH_HANS  归档
-      zh      : *ZH_HANS
-      zh-CN   : *ZH_HANS
-      zh-SG   : *ZH_HANS
-      zh-Hant : &ZH_HANT  歸檔
-      zh-TW   : *ZH_HANT
-      zh-HK   : *ZH_HANT
-      ko      : &KO       아카이브
-      ko-KR   : *KO
-      fr      : &FR       Archives
-      fr-BE   : *FR
-      fr-CA   : *FR
-      fr-CH   : *FR
-      fr-FR   : *FR
-      fr-LU   : *FR
-      # @end locale config
-    url: /archive.html
+  - title: Home
+    url: overview.html
+  - title: Community
+    url: index.html#欢迎加入与反馈
+  - title: Github
+    url: https://github.com/fluid-cloudnative/fluid
 
-  - titles:
-      # @start locale config
-      en      : &EN       About
-      en-GB   : *EN
-      en-US   : *EN
-      en-CA   : *EN
-      en-AU   : *EN
-      zh-Hans : &ZH_HANS  关于
-      zh      : *ZH_HANS
-      zh-CN   : *ZH_HANS
-      zh-SG   : *ZH_HANS
-      zh-Hant : &ZH_HANT  關於
-      zh-TW   : *ZH_HANT
-      zh-HK   : *ZH_HANT
-      ko      : &KO       소개
-      ko-KR   : *KO
-      fr      : &FR       À propos
-      fr-BE   : *FR
-      fr-CA   : *FR
-      fr-CH   : *FR
-      fr-FR   : *FR
-      fr-LU   : *FR
-      # @end locale config
-    url: /about.html
+dic:
+  - title:
+    children:
+      - title: 概览
+        url:   overview.html
+      - title: 快速上手
+        url:  get_started.html
+      - title: 安装文档
+        url: install.html
+      - title: 问题诊断
+        url: troubleshooting.html
+
+  - title: 示例
+    children:
+      - title: 数据加速
+        url: accelerate_data_accessing.html
+      - title: 亲和性调度
+        url: data_co_locality.html
+      - title: 机器学习
+        url: machinelearning.html
+
+  - title: 开发指南
+    children:
+      - title: 如何开发
+        url: how_to_develop.html
+      - title: API Reference
+        url: api_doc.html
+
+
