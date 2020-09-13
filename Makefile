@@ -7,12 +7,20 @@ pre-Gen-HTML:modify-MD
 modify-HTML:pre-Gen-HTML
 	python3 vendor/modify.py
 
-pack:modify-HTML
-	mkdir _site/fluid/;
+pack:modify-MD
+	pip3 install PyYaml
+	python3 vendor/changeBaseURL.py pack
+	bundle exec jekyll build
+	python3 vendor/modifyHTML.py
+	mkdir -p _site/fluid/assets
 	cp _site/*.html _site/fluid/
+	cp -r _site/assets/* _site/fluid/assets/
 	tar cf fluid.tar _site/fluid/
 
+
 preview:modify-MD
-	bundle exec jekyll serve -H 0.0.0.0 -t & 
-	sleep 3;
-	python3 vendor/modify.py
+	pip3 install PyYaml
+	python3 vendor/changeBaseURL.py preview
+	bundle exec jekyll serve -H 0.0.0.0 -t &
+	sleep 5;
+	python3 vendor/modifyHTML.py
