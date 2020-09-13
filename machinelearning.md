@@ -160,7 +160,6 @@ spec:
     resources:
       limits:
         cpu: 16
-    shortCircuitPolicy: local
     args:
       - fuse
       - --fuse-opts=kernel_cache,ro,max_read=131072,attr_timeout=7200,entry_timeout=7200,nonempty
@@ -315,4 +314,10 @@ horovod-resnet50-v2-4x8-fluid  RUNNING  MPIJOB   16s  horovod-resnet50-v2-4x8-fl
 
 ```shell
 $ arena logs --tail 100 -f horovod-resnet50-v2-4x8-fluid
+```
+
+## 环境清理
+
+```shell
+$ kubectl delete -f dataset.yaml
 ```
