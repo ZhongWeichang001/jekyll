@@ -12,6 +12,7 @@ def repl(matched):
     return matched.group(0)
   else:
     article_path=matched.group(1).split('/')[-1]
+# 本地预览时链接会失效，这是因为目前使用的是绝对路径
     return '({})'.format('/fluid/'+article_path+'.html')
 
 for fname in files:
